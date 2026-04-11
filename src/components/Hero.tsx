@@ -9,30 +9,29 @@ function Hero() {
       <div className="hero-inner">
         <div className="hero-left">
           <h1 className="hero-title">
-            We’re
+            Saving
             <br />
-            Building
+            India
             <br />
-            Cool
+            From
             <br />
-            Experiences
+            CyberFrauds
           </h1>
 
           <div className="hero-tags">
-            <span>WEB3</span>
+            <span>SECURITY</span>
             <span>\</span>
-            <span>UI</span>
+            <span>TRINETR-I</span>
             <span>\</span>
-            <span>3D</span>
+            <span>SOLUTIONS</span>
             <span>\</span>
-            <span>MOTION</span>
+            <span>DEKUSION AI</span>
           </div>
         </div>
 
         <div className="hero-right">
           <p className="hero-copy">
-            Crafting awesome stories and kinetic digital products with immersive
-            interfaces, visual depth, and refined motion systems for modern brands.
+            Crypsis is an end-to-end platform tackling the fake and clone app ecosystem, serving government agencies and enterprises facing brand impersonation.
           </p>
 
           <div className="hero-actions">

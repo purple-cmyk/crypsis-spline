@@ -20,7 +20,7 @@ function Navbar() {
       </nav>
 
       <div className="navbar-actions">
-        <button className="talk-btn">Talk</button>
+        <button className="talk-btn">CONTACT US</button>
       </div>
     </header>
   )
