@@ -1,4 +1,27 @@
+import { useState, useEffect, useRef } from 'react'
+
 function Hero() {
+  const [isVisible, setIsVisible] = useState(false)
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (iframeRef.current) {
+      observer.observe(iframeRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <main className="hero" id="home">
       <div className="hero-dotfield" />
@@ -43,12 +66,21 @@ function Hero() {
 
       <div className="hero-spline-wrap" aria-hidden="true">
         <div className="hero-spline-glow" />
-        <iframe
-          className="hero-spline"
-          src="https://my.spline.design/noisyglasscube-Osr20WHifvjZjIjBVQgIjS5H/"
-          frameBorder="0"
-          title="Noisy Glass Cube"
-        />
+        {isVisible ? (
+          <iframe
+            ref={iframeRef}
+            className="hero-spline"
+            src="https://my.spline.design/noisyglasscube-Osr20WHifvjZjIjBVQgIjS5H/"
+            frameBorder="0"
+            title="Noisy Glass Cube"
+          />
+        ) : (
+          <div
+            ref={iframeRef}
+            className="hero-spline"
+            style={{ background: 'linear-gradient(135deg, rgba(177, 146, 255, 0.1), rgba(255, 255, 255, 0.05))' }}
+          />
+        )}
         <div className="spline-badge-mask" />
       </div>
     </main>
