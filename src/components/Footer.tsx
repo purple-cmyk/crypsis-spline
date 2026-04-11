@@ -5,29 +5,25 @@ function Footer() {
     <footer className="footer">
       <div className="footer-cta-card">
         <div className="footer-cta-header">
-          <h2>
-            Are you ready to <span>protect your brand?</span>
-          </h2>
+          <h2>Are you ready to protect your brand?</h2>
           <p>
             Join the fight against fake apps, malicious ads, and deceptive URLs.
-            To get started, reach out to us directly or connect with our team.
+            Reach out to us directly or connect with our team.
           </p>
         </div>
 
         <div className="footer-cta-content">
           <div className="footer-contact-list">
             <div className="footer-contact-box">
-              <div className="footer-contact-icon">📞</div>
               <div>
-                <span>Call Us</span>
+                <span>CALL US</span>
                 <p>+91 9650784785</p>
               </div>
             </div>
 
             <div className="footer-contact-box">
-              <div className="footer-contact-icon">✉️</div>
               <div>
-                <span>Email Us</span>
+                <span>EMAIL US</span>
                 <p>aryan@crypsis.in</p>
               </div>
             </div>
@@ -36,14 +32,13 @@ function Footer() {
           <div className="footer-or">OR</div>
 
           <div className="footer-cta-action">
-            <p>Reach out and we’ll help you secure your digital ecosystem.</p>
-            <button className="footer-cta-button">Get Started Now</button>
+            <p>Reach out and secure your digital ecosystem.</p>
+            <button className="footer-cta-button">Get Started</button>
           </div>
         </div>
 
         <div className="footer-cta-note">
-          Our team is ready to help you detect and prevent fake apps, malicious
-          ads, and brand impersonation threats.
+          Our team helps detect and prevent fake apps, malicious ads, and brand impersonation threats.
         </div>
       </div>
 
