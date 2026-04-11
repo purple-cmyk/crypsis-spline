@@ -1746,26 +1746,16 @@ button {
   gap: 12px;
 }
 
-.footer-legal-links button {
+.footer-legal-links a {
   padding: 10px 16px;
   border-radius: 999px;
   font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.86);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
-    rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.footer-legal-links button:hover {
-  transform: translateY(-1px);
-  border-color: rgba(177, 146, 255, 0.36);
+.footer-legal-links a:hover {
   color: #ffffff;
 }
 

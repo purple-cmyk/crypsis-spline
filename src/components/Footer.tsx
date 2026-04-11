@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function Footer() {
   return (
     <footer className="footer">
@@ -58,8 +60,8 @@ function Footer() {
           <p>© {new Date().getFullYear()} Crypsis. All rights reserved.</p>
 
           <div className="footer-legal-links">
-            <button>Privacy Policy</button>
-            <button>Terms of Service</button>
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/terms-of-service">Terms of Service</Link>
           </div>
         </div>
       </div>
