@@ -29,28 +29,41 @@ function GlassPage() {
   return (
     <section className="glass-page">
       <div className="glass-bg">
-        <div className="wave-layer wave-1" />
-        <div className="wave-layer wave-2" />
-        <div className="wave-layer wave-3" />
-        <div className="wave-glow wave-glow-1" />
-        <div className="wave-glow wave-glow-2" />
+        <div className="glass-grid-pattern" />
+        <div className="glass-ambient glass-ambient-1" />
+        <div className="glass-ambient glass-ambient-2" />
+        <div className="glass-ambient glass-ambient-3" />
+        <div className="glass-center-glow" />
         <div className="glass-overlay" />
-        <div className="glass-noise" />
       </div>
 
       <div className="glass-container">
-        <h2 className="glass-heading">PROBLEM</h2>
+        <div className="glass-header">
+          <span className="glass-kicker">Threat Landscape</span>
+          <h2 className="glass-heading">Problems We Address</h2>
+          <p className="glass-subtext">
+            Crypsis identifies high-risk digital surfaces across apps, ads, URLs,
+            and privacy attack vectors before they impact users at scale.
+          </p>
+        </div>
 
         <div className="glass-grid">
-          {features.map((feature, i) => (
-            <div className="glass-card" key={i}>
-              <div className="card-content">
-                <h3>{feature.title}</h3>
-                <p>{feature.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+  {features.map((feature, i) => (
+    <article className="glass-card" key={i}>
+      <div className="glass-card-borderbeam" />
+      <div className="glass-card-aurora" />
+      <div className="glass-card-blurspot" />
+      <div className="glass-card-sheen" />
+      <div className="card-content">
+        <span className="glass-card-index">
+          {String(i + 1).padStart(2, "0")}
+        </span>
+        <h3>{feature.title}</h3>
+        <p>{feature.desc}</p>
+      </div>
+    </article>
+  ))}
+</div>
       </div>
     </section>
   )
