@@ -11,17 +11,25 @@ import TermsOfService from './components/TermsOfService'
 function App() {
   return (
     <Router>
+      <div className="background-glow"></div>
+      <div className="background-noise"></div>
+      <div className="background-dots"></div>
+      <div className="background-vignette"></div>
+
       <Routes>
-        <Route path="/" element={
-          <>
-            <Navbar />
-            <Hero />
-            <GlassPage />
-            <SolutionPage />
-            <AboutUs />
-            <Footer />
-          </>
-        } />
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <Hero />
+              <GlassPage />
+              <SolutionPage />
+              <AboutUs />
+              <Footer />
+            </>
+          }
+        />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
       </Routes>
