@@ -1,9 +1,33 @@
 function AboutUs() {
+  const items = [
+    {
+      title: "Mission",
+      desc: "To build a unified intelligence layer that protects users and organizations from evolving digital threats.",
+    },
+    {
+      title: "Vision",
+      desc: "To create a secure digital ecosystem where trust, authenticity, and safety are guaranteed.",
+    },
+    {
+      title: "Approach",
+      desc: "Leveraging AI-driven detection, real-time monitoring, and continuous learning to stay ahead of emerging threats.",
+    },
+  ]
+
   return (
     <section className="about-page">
+      <div className="about-bg">
+        <div className="about-grid-pattern" />
+        <div className="about-ambient about-ambient-1" />
+        <div className="about-ambient about-ambient-2" />
+        <div className="about-center-glow" />
+        <div className="about-overlay" />
+      </div>
+
       <div className="about-container">
-        {/* LEFT SIDE */}
         <div className="about-left">
+          <span className="about-kicker">Who We Are</span>
+
           <h2 className="about-heading">
             About <span>Crypsis</span>
           </h2>
@@ -21,31 +45,23 @@ function AboutUs() {
           </p>
         </div>
 
-        {/* RIGHT SIDE */}
         <div className="about-right">
-          <div className="about-card">
-            <h3>Mission</h3>
-            <p>
-              To build a unified intelligence layer that protects users and
-              organizations from evolving digital threats.
-            </p>
-          </div>
+          {items.map((item, i) => (
+            <article className="about-card" key={i}>
+              <div className="about-card-borderbeam" />
+              <div className="about-card-aurora" />
+              <div className="about-card-blurspot" />
+              <div className="about-card-sheen" />
 
-          <div className="about-card">
-            <h3>Vision</h3>
-            <p>
-              To create a secure digital ecosystem where trust, authenticity,
-              and safety are guaranteed.
-            </p>
-          </div>
-
-          <div className="about-card">
-            <h3>Approach</h3>
-            <p>
-              Leveraging AI-driven detection, real-time monitoring, and
-              continuous learning to stay ahead of emerging threats.
-            </p>
-          </div>
+              <div className="about-card-content">
+                <span className="about-card-index">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
