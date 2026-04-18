@@ -20,8 +20,16 @@ function SolutionPage() {
 
   return (
     <section className="solution-page">
-      {/* Heading */}
+      <div className="solution-bg">
+        <div className="solution-grid-pattern" />
+        <div className="solution-ambient solution-ambient-1" />
+        <div className="solution-ambient solution-ambient-2" />
+        <div className="solution-center-glow" />
+        <div className="solution-overlay" />
+      </div>
+
       <div className="solution-header">
+        <span className="solution-kicker">Architecture</span>
         <h2>
           Crypsis <span>Solution Architecture</span>
         </h2>
@@ -31,23 +39,32 @@ function SolutionPage() {
         </p>
       </div>
 
-      {/* Spline Diagram */}
-      <div className="solution-spline">
-        <iframe
-          src="https://my.spline.design/webdiagram-FxF73h3VhbF6Q355JH3eiPHH/"
-          frameBorder="0"
-          title="Solution Diagram"
-        />
+      <div className="solution-spline-wrap">
+        <div className="solution-spline">
+          <iframe
+            src="https://my.spline.design/webdiagram-FxF73h3VhbF6Q355JH3eiPHH/"
+            frameBorder="0"
+            title="Solution Diagram"
+          />
+        </div>
       </div>
 
-      {/* Steps */}
       <div className="solution-steps">
         {steps.map((step, i) => (
-          <div className="solution-card" key={i}>
-            <span className="step-number">0{i + 1}</span>
-            <h3>{step.title}</h3>
-            <p>{step.desc}</p>
-          </div>
+          <article className="solution-card" key={i}>
+            <div className="solution-card-borderbeam" />
+            <div className="solution-card-aurora" />
+            <div className="solution-card-blurspot" />
+            <div className="solution-card-sheen" />
+
+            <div className="solution-card-content">
+              <span className="step-number">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3>{step.title}</h3>
+              <p>{step.desc}</p>
+            </div>
+          </article>
         ))}
       </div>
     </section>

@@ -2458,3 +2458,460 @@ button {
     max-width: none;
   }
 }
+
+
+/* =========================
+   SOLUTION PAGE
+========================= */
+
+.solution-page {
+  position: relative;
+  padding: 120px 24px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.solution-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.solution-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 6, 12, 0.12) 0%,
+      rgba(4, 6, 12, 0.28) 44%,
+      rgba(4, 6, 12, 0.46) 100%
+    );
+}
+
+.solution-grid-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-image:
+    linear-gradient(rgba(110, 124, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110, 124, 255, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at 50% 34%, black 0%, black 54%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 34%, black 0%, black 54%, transparent 100%);
+}
+
+.solution-ambient {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.5;
+}
+
+.solution-ambient-1 {
+  width: 360px;
+  height: 360px;
+  left: -5%;
+  top: 10%;
+  background: rgba(132, 88, 255, 0.14);
+  animation: solutionFloatOne 18s ease-in-out infinite alternate;
+}
+
+.solution-ambient-2 {
+  width: 420px;
+  height: 420px;
+  right: -8%;
+  top: 22%;
+  background: rgba(88, 140, 255, 0.10);
+  animation: solutionFloatTwo 20s ease-in-out infinite alternate;
+}
+
+.solution-center-glow {
+  position: absolute;
+  left: 50%;
+  top: 14%;
+  width: 760px;
+  height: 300px;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(circle at center, rgba(132, 88, 255, 0.16), rgba(88, 140, 255, 0.05) 40%, transparent 72%);
+  filter: blur(54px);
+  opacity: 0.82;
+}
+
+.solution-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 56px;
+}
+
+.solution-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(224, 214, 255, 0.95);
+  background:
+    linear-gradient(180deg, rgba(167, 139, 250, 0.16), rgba(167, 139, 250, 0.06)),
+    rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(190, 168, 255, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 8px 24px rgba(77, 54, 154, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.solution-header h2 {
+  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.985);
+  margin-bottom: 18px;
+  text-shadow:
+    0 6px 24px rgba(88, 74, 180, 0.16),
+    0 0 34px rgba(120, 92, 255, 0.08);
+}
+
+.solution-header span {
+  color: #a78bfa;
+}
+
+.solution-header p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.solution-spline-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto 56px;
+}
+
+.solution-spline {
+  position: relative;
+  height: 430px;
+  overflow: hidden;
+  border-radius: 30px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 24px 60px rgba(0, 0, 0, 0.24);
+}
+
+.solution-spline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.10), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(132, 88, 255, 0.10), transparent 28%);
+  z-index: 1;
+}
+
+.solution-spline iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* STEPS GRID */
+
+.solution-steps {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* CARD */
+
+.solution-card {
+  position: relative;
+  min-height: 235px;
+  padding: 24px;
+  border-radius: 30px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.055) 38%, rgba(255, 255, 255, 0.03) 100%),
+    linear-gradient(135deg, rgba(121, 92, 255, 0.08), rgba(78, 136, 255, 0.04) 55%, rgba(255, 255, 255, 0.02) 100%),
+    rgba(255, 255, 255, 0.028);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -12px 24px rgba(255, 255, 255, 0.015),
+    0 24px 60px rgba(0, 0, 0, 0.24),
+    0 10px 24px rgba(56, 36, 120, 0.12);
+  transition:
+    transform 0.32s ease,
+    border-color 0.32s ease,
+    box-shadow 0.32s ease,
+    background 0.32s ease;
+}
+
+.solution-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.22), transparent 24%),
+    radial-gradient(circle at 88% 100%, rgba(140, 110, 255, 0.12), transparent 28%);
+  z-index: 0;
+}
+
+.solution-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.055),
+    rgba(255, 255, 255, 0.01) 30%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 0;
+}
+
+.solution-card-borderbeam {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.42) 18%,
+    rgba(195, 177, 255, 0.95) 50%,
+    rgba(255, 255, 255, 0.42) 82%,
+    transparent 100%
+  );
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.solution-card-aurora {
+  position: absolute;
+  inset: auto auto -56px -24px;
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(128, 92, 255, 0.22), rgba(128, 92, 255, 0.08) 42%, transparent 72%);
+  filter: blur(34px);
+  opacity: 0.72;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.solution-card-blurspot {
+  position: absolute;
+  top: -24px;
+  right: -18px;
+  width: 140px;
+  height: 140px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(95, 162, 255, 0.12), transparent 72%);
+  filter: blur(24px);
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.solution-card-sheen {
+  position: absolute;
+  top: -35%;
+  left: -55%;
+  width: 60%;
+  height: 180%;
+  transform: rotate(20deg);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.02) 36%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.03) 64%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition:
+    transform 0.7s ease,
+    opacity 0.32s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.solution-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  border-color: rgba(200, 182, 255, 0.32);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.07) 40%, rgba(255, 255, 255, 0.034) 100%),
+    linear-gradient(135deg, rgba(121, 92, 255, 0.11), rgba(78, 136, 255, 0.07) 55%, rgba(255, 255, 255, 0.024) 100%),
+    rgba(255, 255, 255, 0.034);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 30px 80px rgba(42, 28, 88, 0.30),
+    0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.solution-card:hover .solution-card-sheen {
+  opacity: 1;
+  transform: translateX(210%) rotate(20deg);
+}
+
+.solution-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-bottom: 18px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(214, 201, 255, 0.92);
+  background: rgba(139, 92, 246, 0.10);
+  border: 1px solid rgba(190, 168, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.solution-card h3 {
+  font-size: 1.18rem;
+  line-height: 1.28;
+  font-weight: 620;
+  letter-spacing: -0.025em;
+  color: rgba(255, 255, 255, 0.985);
+  margin-bottom: 14px;
+  max-width: 14ch;
+}
+
+.solution-card p {
+  font-size: 0.98rem;
+  line-height: 1.74;
+  color: rgba(255, 255, 255, 0.76);
+  max-width: 28ch;
+}
+
+/* slight stagger */
+.solution-card:nth-child(2),
+.solution-card:nth-child(4) {
+  transform: translateY(10px);
+}
+
+.solution-card:nth-child(2):hover,
+.solution-card:nth-child(4):hover {
+  transform: translateY(0) scale(1.01);
+}
+
+/* ANIMATIONS */
+
+@keyframes solutionFloatOne {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(24px, 10px, 0);
+  }
+}
+
+@keyframes solutionFloatTwo {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-24px, 16px, 0);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .solution-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .solution-card:nth-child(2),
+  .solution-card:nth-child(4) {
+    transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .solution-page {
+    padding: 84px 16px;
+  }
+
+  .solution-header {
+    margin-bottom: 38px;
+  }
+
+  .solution-header h2 {
+    font-size: clamp(2.2rem, 11vw, 3.2rem);
+  }
+
+  .solution-header p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .solution-spline {
+    height: 300px;
+    border-radius: 24px;
+  }
+
+  .solution-steps {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .solution-card {
+    min-height: 200px;
+    border-radius: 24px;
+    padding: 22px 20px;
+  }
+
+  .solution-card h3,
+  .solution-card p {
+    max-width: none;
+  }
+
+  .solution-center-glow {
+    width: 420px;
+    height: 220px;
+    top: 16%;
+  }
+}
