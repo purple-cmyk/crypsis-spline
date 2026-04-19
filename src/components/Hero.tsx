@@ -172,31 +172,33 @@ function Hero() {
     return () => observer.disconnect()
   }, [])
 
-  useEffect(() => {
-    if (!isInView) return
+useEffect(() => {
+  if (!isInView) return
 
-    let cancelled = false
+  let cancelled = false
 
-    const loadWhenIdle = () => {
-      if (!cancelled) {
-        setShouldLoadSpline(true)
-      }
+  const loadWhenIdle = () => {
+    if (!cancelled) {
+      setShouldLoadSpline(true)
     }
+  }
 
-    if ('requestIdleCallback' in window) {
-      const id = window.requestIdleCallback(loadWhenIdle, { timeout: 1200 })
-      return () => {
-        cancelled = true
-        window.cancelIdleCallback(id)
-      }
-    } else {
-      const timeout = window.setTimeout(loadWhenIdle, 500)
-      return () => {
-        cancelled = true
-        clearTimeout(timeout)
-      }
+  if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+    const id = window.requestIdleCallback(loadWhenIdle, { timeout: 1200 })
+
+    return () => {
+      cancelled = true
+      window.cancelIdleCallback(id)
     }
-  }, [isInView])
+  }
+
+  const timeout = setTimeout(loadWhenIdle, 500)
+
+  return () => {
+    cancelled = true
+    clearTimeout(timeout)
+  }
+}, [isInView])
 
   return (
     <main className="hero" id="home">
