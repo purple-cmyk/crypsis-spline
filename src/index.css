@@ -6756,3 +6756,49 @@ body {
 .footer-contact-box {
   flex: 1;
 }
+
+
+/* ── MOBILE: hide center nav + show stacked layout ── */
+@media (max-width: 820px) {
+  .navbar {
+    grid-template-columns: 1fr 1fr;
+    padding: 14px 20px;
+    gap: 0;
+  }
+
+  .navbar-brand {
+    justify-self: start;
+  }
+
+  .navbar-actions {
+    justify-self: end;
+  }
+
+  .navbar-center {
+    display: none;
+  }
+
+  .talk-btn {
+    height: 38px;
+    padding: 0 16px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .brand {
+    font-size: 13px;
+    letter-spacing: 0.24em;
+  }
+
+  .talk-btn {
+    height: 34px;
+    padding: 0 12px;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+}
