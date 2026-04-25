@@ -47,11 +47,11 @@ const detectionData: DetectionSection[] = [
         id: "02",
         status: "Upcoming",
         title: "Extended Detection",
-        text: "Scaling detection capabilities to identify more fraudulent apps using the signatures discovered in Phase 1 with human review.",
+        text: "Scaling detection capabilities using signatures discovered in Phase 1 with human validation.",
         points: [
           "Larger app coverage",
           "Improved clustering",
-          "Human-reviewed validation",
+          "Human-reviewed evidence",
         ],
         accent: "blue",
       },
@@ -59,7 +59,7 @@ const detectionData: DetectionSection[] = [
         id: "03",
         status: "Upcoming",
         title: "Automated 1-Click Review",
-        text: "Fully automated pipeline for one-click review and evidence extraction with minimal manual dependency.",
+        text: "Fully automated pipeline for evidence extraction and review.",
         points: [
           "Auto-generated reports",
           "Fast review pipeline",
@@ -71,7 +71,7 @@ const detectionData: DetectionSection[] = [
         id: "04",
         status: "Future",
         title: "Ecosystem Protection",
-        text: "Continuous monitoring of app stores and social media for new scam app variants before they reach victims.",
+        text: "Continuous monitoring of app stores and social media for new scam variants.",
         points: [
           "Always-on monitoring",
           "Variant detection",
@@ -143,7 +143,7 @@ const detectionData: DetectionSection[] = [
     heading: "Banned Website and RMG",
     highlight: "Detection",
     description:
-      "Our website detection engine identifies sites similar to already banned websites, including Real Money Gaming platforms that may evade takedown orders.",
+      "Our website detection engine identifies sites similar to banned websites, including Real Money Gaming platforms that may evade takedown orders.",
     phases: [
       {
         id: "01",
@@ -204,20 +204,61 @@ function SolutionPage() {
   const sectionRef = useRef<HTMLElement | null>(null)
   const cardsRef = useRef<(HTMLElement | null)[]>([])
   const nodesRef = useRef<(HTMLDivElement | null)[]>([])
+  const lineRef = useRef<HTMLDivElement | null>(null)
+  const progressRef = useRef<HTMLDivElement | null>(null)
+  const pulseRef = useRef<HTMLDivElement | null>(null)
 
   const activeSection = detectionData[activeTab]
-
-  useEffect(() => {
-    cardsRef.current = []
-    nodesRef.current = []
-  }, [activeTab])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const cards = cardsRef.current.filter(Boolean) as HTMLElement[]
       const nodes = nodesRef.current.filter(Boolean) as HTMLDivElement[]
 
-      if (!cards.length) return
+      if (!cards.length || !nodes.length) return
+
+      let active = 0
+
+      cards.forEach((card, index) => {
+        card.classList.toggle("featured", index === 0)
+      })
+
+      nodes.forEach((node, index) => {
+        node.classList.toggle("active", index === 0)
+      })
+
+      gsap.set(cards, {
+        opacity: 0.48,
+        scale: 0.96,
+        y: 16,
+        filter: "blur(1px)",
+      })
+
+      gsap.set(cards[0], {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        filter: "blur(0px)",
+      })
+
+      gsap.set(nodes, {
+        scale: 0.7,
+        opacity: 0.35,
+      })
+
+      gsap.set(nodes[0], {
+        scale: 1.45,
+        opacity: 1,
+      })
+
+      gsap.set(progressRef.current, {
+        width: "0%",
+      })
+
+      gsap.set(pulseRef.current, {
+        left: "0%",
+        opacity: 1,
+      })
 
       gsap.fromTo(
         ".solution-title, .solution-desc",
@@ -225,7 +266,7 @@ function SolutionPage() {
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
+          duration: 0.55,
           stagger: 0.08,
           ease: "power3.out",
         }
@@ -233,31 +274,53 @@ function SolutionPage() {
 
       gsap.fromTo(
         cards,
+        { opacity: 0, y: 30, scale: 0.94 },
         {
-          opacity: 0,
-          y: 24,
-          scale: 0.96,
-        },
-        {
-          opacity: 0.72,
-          y: 8,
-          scale: 0.98,
-          duration: 0.7,
+          opacity: (i) => (i === 0 ? 1 : 0.48),
+          y: (i) => (i === 0 ? 0 : 16),
+          scale: (i) => (i === 0 ? 1 : 0.96),
+          duration: 0.75,
           stagger: 0.08,
           ease: "power3.out",
         }
       )
 
-      gsap.set(cards[0], {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-      })
+      gsap.fromTo(
+        lineRef.current,
+        { scaleX: 0, transformOrigin: "left center" },
+        {
+          scaleX: 1,
+          duration: 0.9,
+          ease: "power3.out",
+        }
+      )
 
-      gsap.set(nodes, { scale: 0.7, opacity: 0.4 })
-      gsap.set(nodes[0], { scale: 1.4, opacity: 1 })
+      const updateNetwork = (next: number) => {
+        const progress = (next / (nodes.length - 1)) * 100
 
-      let active = 0
+        gsap.to(progressRef.current, {
+          width: `${progress}%`,
+          duration: 0.75,
+          ease: "power3.inOut",
+        })
+
+        gsap.to(pulseRef.current, {
+          left: `${progress}%`,
+          duration: 0.75,
+          ease: "power3.inOut",
+        })
+
+        nodes.forEach((node, i) => {
+          node.classList.toggle("active", i === next)
+
+          gsap.to(node, {
+            scale: i === next ? 1.45 : 0.7,
+            opacity: i === next ? 1 : 0.35,
+            duration: 0.45,
+            ease: i === next ? "back.out(2)" : "power3.out",
+          })
+        })
+      }
 
       const switchCard = (next: number) => {
         const prev = active
@@ -267,31 +330,31 @@ function SolutionPage() {
           card.classList.toggle("featured", i === next)
         })
 
-        nodes.forEach((node, i) => {
-          node.classList.toggle("active", i === next)
-        })
-
         gsap.to(cards[prev], {
-          opacity: 0.72,
-          scale: 0.98,
-          y: 8,
-          duration: 0.6,
+          opacity: 0.48,
+          scale: 0.96,
+          y: 16,
+          filter: "blur(1px)",
+          duration: 0.55,
           ease: "power3.inOut",
         })
 
         gsap.fromTo(
           cards[next],
           {
-            opacity: 0.6,
-            scale: 0.98,
-            x: 40,
+            opacity: 0.55,
+            scale: 0.96,
+            y: 16,
+            x: 34,
+            filter: "blur(1px)",
           },
           {
             opacity: 1,
             scale: 1,
-            x: 0,
             y: 0,
-            duration: 0.8,
+            x: 0,
+            filter: "blur(0px)",
+            duration: 0.75,
             ease: "power4.out",
           }
         )
@@ -299,26 +362,17 @@ function SolutionPage() {
         cards.forEach((card, i) => {
           if (i !== next && i !== prev) {
             gsap.to(card, {
-              opacity: 0.72,
-              scale: 0.98,
-              y: 8,
-              duration: 0.5,
+              opacity: 0.48,
+              scale: 0.96,
+              y: 16,
+              filter: "blur(1px)",
+              duration: 0.45,
+              ease: "power3.out",
             })
           }
         })
 
-        gsap.to(nodes, {
-          scale: 0.7,
-          opacity: 0.4,
-          duration: 0.4,
-        })
-
-        gsap.to(nodes[next], {
-          scale: 1.4,
-          opacity: 1,
-          duration: 0.5,
-          ease: "back.out(2)",
-        })
+        updateNetwork(next)
       }
 
       const tl = gsap.timeline({ repeat: -1 })
@@ -332,7 +386,7 @@ function SolutionPage() {
     }, sectionRef)
 
     return () => ctx.revert()
-  }, [activeTab, activeSection.phases])
+  }, [activeTab, activeSection])
 
   return (
     <section ref={sectionRef} className="solution-page">
@@ -358,8 +412,12 @@ function SolutionPage() {
         <p className="solution-desc">{activeSection.description}</p>
 
         <div className="solution-timeline">
+          <div ref={lineRef} className="timeline-line" />
+          <div ref={progressRef} className="timeline-progress" />
+          <div ref={pulseRef} className="timeline-pulse" />
+
           {activeSection.phases.map((_, i) => (
-            <div key={i} className="timeline-node-wrap">
+            <div key={`${activeTab}-node-${i}`} className="timeline-node-wrap">
               <div
                 ref={(el) => {
                   nodesRef.current[i] = el
