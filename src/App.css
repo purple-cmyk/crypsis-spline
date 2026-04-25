@@ -182,3 +182,249 @@
     border-right-color: var(--border);
   }
 }
+
+
+.counter {
+  font-size: clamp(14px, 1.5vw, 16px);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: clamp(14px, 3vw, 24px);
+}
+
+.counter:hover {
+  border-color: var(--accent-border);
+}
+
+.counter:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.hero {
+  position: relative;
+  width: min(100%, 360px);
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .base,
+.hero .framework,
+.hero .vite {
+  inset-inline: 0;
+  margin: 0 auto;
+}
+
+.hero .base {
+  width: clamp(120px, 32vw, 170px);
+  position: relative;
+  z-index: 0;
+}
+
+.hero .framework,
+.hero .vite {
+  position: absolute;
+}
+
+.hero .framework {
+  z-index: 1;
+  top: clamp(24px, 6vw, 34px);
+  height: clamp(20px, 5vw, 28px);
+  transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
+    scale(clamp(1, 2vw, 1.4));
+}
+
+.hero .vite {
+  z-index: 0;
+  top: clamp(76px, 20vw, 107px);
+  height: clamp(18px, 4.5vw, 26px);
+  width: auto;
+  transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
+    scale(clamp(0.65, 1.5vw, 0.8));
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 3vw, 25px);
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+  width: 100%;
+  padding: clamp(24px, 5vw, 48px) clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+#next-steps {
+  display: flex;
+  border-top: 1px solid var(--border);
+  text-align: left;
+  width: 100%;
+}
+
+#next-steps > div {
+  flex: 1 1 0;
+  padding: clamp(22px, 4vw, 32px);
+  box-sizing: border-box;
+}
+
+#next-steps .icon {
+  margin-bottom: 16px;
+  width: clamp(20px, 3vw, 22px);
+  height: clamp(20px, 3vw, 22px);
+}
+
+#docs {
+  border-right: 1px solid var(--border);
+}
+
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: clamp(20px, 4vw, 32px) 0 0;
+  flex-wrap: wrap;
+}
+
+#next-steps ul .logo {
+  height: 18px;
+}
+
+#next-steps ul a {
+  color: var(--text-h);
+  font-size: clamp(14px, 1.6vw, 16px);
+  border-radius: 6px;
+  background: var(--social-bg);
+  display: flex;
+  padding: 6px 12px;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: box-shadow 0.3s;
+  white-space: nowrap;
+}
+
+#next-steps ul a:hover {
+  box-shadow: var(--shadow);
+}
+
+#next-steps ul a .button-icon {
+  height: 18px;
+  width: 18px;
+}
+
+#spacer {
+  height: clamp(44px, 8vw, 88px);
+  border-top: 1px solid var(--border);
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+}
+
+.ticks::before,
+.ticks::after {
+  content: "";
+  position: absolute;
+  top: -4.5px;
+  border: 5px solid transparent;
+}
+
+.ticks::before {
+  left: 0;
+  border-left-color: var(--border);
+}
+
+.ticks::after {
+  right: 0;
+  border-right-color: var(--border);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  #center {
+    padding: 32px 20px 24px;
+  }
+
+  #next-steps {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #docs {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  #next-steps ul {
+    justify-content: center;
+  }
+
+  #next-steps ul li {
+    flex: 1 1 calc(50% - 8px);
+  }
+
+  #next-steps ul a {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .hero {
+    width: min(100%, 260px);
+  }
+
+  #center {
+    padding: 28px 16px 22px;
+    gap: 16px;
+  }
+
+  #next-steps > div {
+    padding: 22px 16px;
+  }
+
+  #next-steps ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #next-steps ul li {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  #next-steps ul a {
+    width: 100%;
+    min-height: 42px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .hero {
+    width: min(100%, 220px);
+  }
+
+  .counter {
+    font-size: 13px;
+    padding: 4px 8px;
+  }
+
+  #center {
+    padding-inline: 12px;
+  }
+
+  #next-steps > div {
+    padding-inline: 12px;
+  }
+}
