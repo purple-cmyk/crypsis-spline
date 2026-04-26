@@ -6802,3 +6802,135 @@ body {
     letter-spacing: 0.12em;
   }
 }
+/* DESKTOP (default behavior stays same) */
+.glass-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* MOBILE: horizontal scroll */
+@media (max-width: 768px) {
+  .glass-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+
+    padding: 0 16px;
+    scroll-snap-type: x mandatory;
+
+    /* smooth scrolling */
+    -webkit-overflow-scrolling: touch;
+
+    /* hide scrollbar (optional) */
+    scrollbar-width: none;
+  }
+
+  .glass-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .glass-card {
+    min-width: 85%;
+    flex: 0 0 auto;
+
+    scroll-snap-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .glass-container {
+    position: relative;
+  }
+
+  .glass-container::before,
+  .glass-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .glass-container::before {
+    left: 0;
+    background: linear-gradient(to right, #0a0615, transparent);
+  }
+
+  .glass-container::after {
+    right: 0;
+    background: linear-gradient(to left, #0a0615, transparent);
+  }
+}
+
+@media (max-width: 768px) {
+  .glass-card {
+    min-width: 80%;
+  }
+}
+
+.glass-card {
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .glass-page {
+    overflow-x: hidden;
+  }
+
+  .glass-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .glass-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    width: 100%;
+    max-width: 100%;
+
+    padding: 0 16px 12px;
+    box-sizing: border-box;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .glass-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .glass-card {
+    flex: 0 0 calc(100vw - 48px);
+    width: calc(100vw - 48px);
+    max-width: calc(100vw - 48px);
+    min-width: 0;
+
+    scroll-snap-align: center;
+    box-sizing: border-box;
+  }
+
+  .card-content {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .glass-card h3,
+  .glass-card p {
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+}
+
