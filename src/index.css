@@ -7321,3 +7321,87 @@ body {
   opacity: 0.8;
 }
 
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* keep content above spline */
+.hero-inner,
+.hero-dotfield,
+.hero-vignette,
+.hero-noise,
+.hero-purple-haze {
+  position: relative;
+  z-index: 3;
+}
+
+/* full hero background */
+.hero-spline-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* actual spline container */
+.hero-spline {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+/* Spline canvas/children full size */
+.hero-spline canvas,
+.hero-spline > div,
+.hero-spline iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* scale it slightly so it does not cut at edges */
+.hero-spline > div {
+  transform: scale(1.12);
+  transform-origin: center center;
+}
+
+/* fallback should also cover full hero */
+.hero-cube-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* optional dark overlay so text stays readable */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.42) 42%,
+      rgba(0, 0, 0, 0.18) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.22) 0%,
+      transparent 45%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+
+  pointer-events: none;
+}
