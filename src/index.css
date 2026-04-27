@@ -7222,3 +7222,66 @@ body {
   padding: 8px 18px;
   transform: scale(0.96);
 }
+
+
+.solution-timeline {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  margin: 32px 0;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.timeline-line {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(168, 85, 247, 0.22),
+    transparent
+  );
+}
+
+.timeline-loading-glow {
+  position: absolute;
+  top: 0;
+  left: -35%;
+  width: 35%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(168, 85, 247, 0.28),
+    rgba(216, 180, 254, 1),
+    rgba(168, 85, 247, 0.28),
+    transparent
+  );
+  box-shadow:
+    0 0 12px rgba(168, 85, 247, 0.8),
+    0 0 26px rgba(168, 85, 247, 0.45);
+  animation: timelineGlowMove 3.2s ease-in-out infinite;
+}
+
+@keyframes timelineGlowMove {
+  0% {
+    left: -35%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
