@@ -7285,3 +7285,39 @@ body {
     opacity: 0;
   }
 }
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* LOGO */
+.navbar-logo {
+  height: 26px;
+  width: auto;
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* TEXT */
+.navbar-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: white;
+
+  transition: opacity 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.navbar-brand:hover .navbar-logo {
+  transform: translateY(-1px) scale(1.05);
+}
+
+.navbar-brand:hover .navbar-title {
+  opacity: 0.8;
+}
+
