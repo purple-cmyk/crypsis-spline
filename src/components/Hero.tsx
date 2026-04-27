@@ -219,9 +219,23 @@ useEffect(() => {
             CyberFrauds
           </h1>
 
-          <div className="hero-badge">
-            #CSGC2.0 | Crypsis — 1st Runner-Up, Cyber Security Grand Challenge 2.0
-          </div>
+<div className="hero-award-bar">
+  <div className="hero-award-logo-wrap">
+    <img
+      src="/Ministry_of_Electronics_and_Information_Technology.svg"
+      alt="MeitY"
+    />
+  </div>
+
+  <span className="hero-award-text">
+    <strong>Crypsis</strong> secured <strong>1st Runner-Up</strong> at the
+    <span className="highlight"> Cyber Security Grand Challenge 2.0</span>
+  </span>
+
+  <div className="hero-award-logo-wrap">
+    <img src="/dsci.svg" alt="DSCI" />
+  </div>
+</div>
 
           <div className="hero-tags">
             <span>SECURITY</span>

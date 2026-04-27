@@ -6934,3 +6934,81 @@ body {
   }
 }
 
+.hero-award-bar {
+  margin-top: 28px;
+  padding: 8px 12px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(20, 10, 40, 0.75),
+    rgba(10, 5, 20, 0.85)
+  );
+
+  border: 1px solid rgba(168, 85, 247, 0.25);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 10px 30px rgba(88, 28, 135, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* LOGO CONTAINER (THIS FIXES COLOR ISSUE) */
+.hero-award-logo-wrap {
+  height: 30px;
+  padding: 4px 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  background: #ffffff; /* force clean white base */
+}
+
+.hero-award-logo-wrap img {
+  height: 18px;
+  width: auto;
+  object-fit: contain;
+
+  filter: brightness(0); /* forces ALL logos to black */
+}
+
+/* TEXT */
+.hero-award-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+}
+
+.hero-award-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.hero-award-text .highlight {
+  color: #c084fc;
+  margin-left: 4px;
+}
+
+/* MOBILE FIX */
+@media (max-width: 700px) {
+  .hero-award-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .hero-award-text {
+    white-space: normal;
+  }
+}
