@@ -7012,3 +7012,213 @@ body {
     white-space: normal;
   }
 }
+
+
+/* CONTAINER POSITION FIX */
+.hero-actions {
+  margin-top: 28px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  /* shift slightly upward for better alignment with text */
+  transform: translateY(-6px);
+}
+
+/* BASE BUTTON */
+.hero-btn {
+  padding: 12px 22px;
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  cursor: pointer;
+  border: none;
+
+  /* REMOVE dull transparency */
+  opacity: 1;
+
+  transition: all 0.25s ease;
+}
+
+/* PRIMARY BUTTON (Get Started) */
+.hero-btn-primary {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: #fff;
+
+  box-shadow:
+    0 10px 30px rgba(124, 58, 237, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* SECONDARY BUTTON (Contact) */
+.hero-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+
+  border: 1px solid rgba(168, 85, 247, 0.25);
+
+  backdrop-filter: blur(10px);
+}
+
+/* HOVER EFFECTS */
+.hero-btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 18px 45px rgba(124, 58, 237, 0.5),
+    0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+.hero-btn-secondary:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(168, 85, 247, 0.5);
+}
+
+/* CLICK FEEL */
+.hero-btn:active {
+  transform: scale(0.97);
+}
+
+/* MOBILE FIX */
+@media (max-width: 700px) {
+  .hero-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+    transform: translateY(0);
+  }
+}
+
+.hero-actions {
+  margin-top: 28px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  justify-content: flex-start; /* aligns with text */
+}
+
+/* COMMON BUTTON BASE */
+.hero-btn {
+  padding: 12px 22px;
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+/* PRIMARY (Get Started) */
+.hero-btn-primary {
+  background: rgba(255, 255, 255, 0.9);
+  color: #0a0a0a;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* SECONDARY (Contact) */
+.hero-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* HOVER */
+.hero-btn-primary:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+}
+
+.hero-btn-secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  height: 72px;
+  padding: 0 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(4, 3, 12, 0.42);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  transition:
+    height 0.28s ease,
+    padding 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+/* add this class when scrolled */
+.navbar.shrink {
+  height: 54px;
+  padding: 0 24px;
+
+  background: rgba(4, 3, 12, 0.78);
+
+  box-shadow:
+    0 12px 34px rgba(0, 0, 0, 0.34),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.navbar-logo {
+  font-size: 0.8rem;
+  letter-spacing: 0.32em;
+  transition: font-size 0.28s ease, letter-spacing 0.28s ease;
+}
+
+.navbar.shrink .navbar-logo {
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+
+.navbar-links a {
+  font-size: 0.74rem;
+  letter-spacing: 0.28em;
+  transition: font-size 0.28s ease, opacity 0.28s ease;
+}
+
+.navbar.shrink .navbar-links a {
+  font-size: 0.66rem;
+  opacity: 0.82;
+}
+
+.navbar-contact {
+  padding: 12px 24px;
+  border-radius: 999px;
+  transition: padding 0.28s ease, transform 0.28s ease;
+}
+
+.navbar.shrink .navbar-contact {
+  padding: 8px 18px;
+  transform: scale(0.96);
+}
