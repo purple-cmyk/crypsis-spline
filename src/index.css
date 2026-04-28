@@ -4815,16 +4815,14 @@ button {
   line-height: 0.98;
   letter-spacing: -0.055em;
   font-weight: 850;
-  text-align: left;
+  text-align: center;
   color: white;
   text-shadow: 0 0 30px rgba(168, 85, 247, 0.18);
+  white-space: nowrap;
 }
 
 .solution-title span {
-  background: linear-gradient(135deg, #ffffff, #c4b5fd 35%, #8b5cf6 75%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #c4b5fd;
 }
 
 .solution-timeline {

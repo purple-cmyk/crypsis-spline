@@ -30,7 +30,7 @@ function Navbar() {
       {/* CENTER NAV */}
       <nav className="navbar-center">
         <button onClick={() => scrollToSection('glass-page')} className="nav-link">NEED</button>
-        <button onClick={() => scrollToSection('solution-page')} className="nav-link">SOLUTION</button>
+        <button onClick={() => scrollToSection('fake-app-detection-heading')} className="nav-link">SOLUTION</button>
         <button onClick={() => scrollToSection('about-us')} className="nav-link">ABOUT US</button>
       </nav>
 

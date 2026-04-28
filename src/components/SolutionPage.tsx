@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react"
 // // import gsap from "gsap"
 
 // // const tabs = [
@@ -1160,7 +1159,7 @@ function SolutionPage() {
         </div>
 
         {/* TITLE */}
-        <h2 className="solution-title">
+        <h2 id="fake-app-detection-heading" className="solution-title">
           {activeSection.heading} <span>{activeSection.highlight}</span>
         </h2>
 
