@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Spline from '@splinetool/react-spline'
+import { scrollToSection } from '../utils/scrollTo'
 
 function Hero() {
   const [shouldLoadSpline, setShouldLoadSpline] = useState(false)
@@ -102,7 +103,7 @@ function Hero() {
           </p>
 
           <div className="hero-actions">
-            <button className="hero-btn hero-btn-secondary">Contact Us</button>
+            <button onClick={() => scrollToSection('footer')} className="hero-btn hero-btn-secondary">Contact Us</button>
             <button className="hero-btn hero-btn-primary">Get Started</button>
           </div>
         </div>

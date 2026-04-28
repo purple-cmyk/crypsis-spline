@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { scrollToSection } from "../utils/scrollTo"
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -17,7 +18,7 @@ function Navbar() {
     <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
 
       {/* BRAND */}
-      <a href="#home" className="navbar-brand">
+      <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }} className="navbar-brand">
         <img
           src="/crypsis_logo.svg"
           alt="Crypsis"
@@ -28,14 +29,14 @@ function Navbar() {
 
       {/* CENTER NAV */}
       <nav className="navbar-center">
-        <a href="#cases" className="nav-link">NEED</a>
-        <a href="#library" className="nav-link">SOLUTION</a>
-        <a href="#resources" className="nav-link">ABOUT US</a>
+        <button onClick={() => scrollToSection('glass-page')} className="nav-link">NEED</button>
+        <button onClick={() => scrollToSection('solution-page')} className="nav-link">SOLUTION</button>
+        <button onClick={() => scrollToSection('about-us')} className="nav-link">ABOUT US</button>
       </nav>
 
       {/* ACTION */}
       <div className="navbar-actions">
-        <button className="talk-btn">CONTACT US</button>
+        <button onClick={() => scrollToSection('footer')} className="talk-btn">CONTACT US</button>
       </div>
 
     </header>

@@ -1,4 +1,4 @@
-// // import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 // // import gsap from "gsap"
 
 // // const tabs = [
@@ -814,7 +814,7 @@
 //   }
 
 //   return (
-//     <section ref={sectionRef} className="solution-page" id="library">
+//     <section ref={sectionRef} className="solution-page" id="solution-page">
 //       <div className="solution-container">
 //         <div className="solution-tabs" role="tablist" aria-label="Detection categories">
 //           {tabs.map((tab, index) => (

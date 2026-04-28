@@ -15,7 +15,7 @@ function AboutUs() {
   ]
 
   return (
-    <section className="about-page">
+    <section className="about-page" id="about-us">
       <div className="about-bg">
         <div className="about-grid-pattern" />
         <div className="about-ambient about-ambient-1" />
