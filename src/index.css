@@ -7623,3 +7623,27 @@ body {
   gap: clamp(18px, 4vw, 50px);
   margin-bottom: 18px;
 }
+
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero-copy {
+  max-width: 500px;
+  text-align: left;
+  line-height: 1.65;
+  font-size: clamp(16px, 1.35vw, 19px);
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}

@@ -1,3 +1,134 @@
+// 'use client'
+
+// import { useState, useEffect, useRef } from 'react'
+// import Spline from '@splinetool/react-spline'
+// import { scrollToSection } from '../utils/scrollTo'
+
+// function Hero() {
+//   const [shouldLoadSpline, setShouldLoadSpline] = useState(false)
+//   const [isInView, setIsInView] = useState(false)
+//   const triggerRef = useRef<HTMLDivElement>(null)
+
+//   useEffect(() => {
+//     const mediaReduce = window.matchMedia('(prefers-reduced-motion: reduce)')
+//     const mediaMobile = window.matchMedia('(max-width: 900px)')
+
+//     if (mediaReduce.matches || mediaMobile.matches) {
+//       setShouldLoadSpline(false)
+//       return
+//     }
+
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setIsInView(true)
+//           observer.disconnect()
+//         }
+//       },
+//       {
+//         threshold: 0.2,
+//         rootMargin: '150px',
+//       }
+//     )
+
+//     if (triggerRef.current) {
+//       observer.observe(triggerRef.current)
+//     }
+
+//     return () => observer.disconnect()
+//   }, [])
+
+//   useEffect(() => {
+//     if (!isInView) return
+
+//     let cancelled = false
+
+//     const loadWhenIdle = () => {
+//       if (!cancelled) {
+//         setShouldLoadSpline(true)
+//       }
+//     }
+
+//     if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+//       const id = window.requestIdleCallback(loadWhenIdle, { timeout: 1200 })
+
+//       return () => {
+//         cancelled = true
+//         window.cancelIdleCallback(id)
+//       }
+//     }
+
+//     const timeout = setTimeout(loadWhenIdle, 500)
+
+//     return () => {
+//       cancelled = true
+//       clearTimeout(timeout)
+//     }
+//   }, [isInView])
+
+//   return (
+//     <main className="hero" id="home">
+//       <div className="hero-dotfield" />
+//       <div className="hero-vignette" />
+//       <div className="hero-noise" />
+//       <div className="hero-purple-haze" />
+
+//       <div className="hero-inner">
+//         <div className="hero-left">
+//           <h1 className="hero-title">
+//             Saving
+//             <br />
+//             India
+//             <br />
+//             From
+//             <br />
+//             CyberFrauds
+//           </h1>
+
+//           <div className="hero-tags">
+//             <span>SECURITY</span>
+//             <span>\</span>
+//             <span>TRINETR-I</span>
+//             <span>\</span>
+//             <span>SOLUTIONS</span>
+//             <span>\</span>
+//             <span>DELUSION AI</span>
+//           </div>
+//         </div>
+
+//         <div className="hero-right">
+//           <p className="hero-copy">
+//             Crypsis is an end-to-end platform tackling the fake and clone app ecosystem,
+//             serving government agencies and enterprises facing brand impersonation.
+//           </p>
+
+//           <div className="hero-actions">
+//             <button onClick={() => scrollToSection('footer')} className="hero-btn hero-btn-secondary">Contact Us</button>
+//             <button className="hero-btn hero-btn-primary">Get Started</button>
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="hero-spline-wrap" aria-hidden="true" ref={triggerRef}>
+//         <div className="hero-spline-glow" />
+
+//         {shouldLoadSpline ? (
+//           <div className="hero-spline">
+//             <Spline scene="https://prod.spline.design/1FWHZLGrrs5PnzWy/scene.splinecode" />
+//           </div>
+//         ) : (
+//           <div className="hero-cube-fallback">
+//             <div className="hero-cube-fallback-inner" />
+//           </div>
+//         )}
+//       </div>
+//     </main>
+//   )
+// }
+
+// export default Hero
+
+
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
@@ -97,14 +228,23 @@ function Hero() {
         </div>
 
         <div className="hero-right">
-          <p className="hero-copy">
-            Crypsis is an end-to-end platform tackling the fake and clone app ecosystem,
-            serving government agencies and enterprises facing brand impersonation.
+          <p className="hero-copy" style={{ textAlign: 'left' }}>
+Crypsis is an end-to-end platform tackling fake  
+and clone app ecosystems, helping government  
+agencies and enterprises fight brand impersonation.
           </p>
 
           <div className="hero-actions">
-            <button onClick={() => scrollToSection('footer')} className="hero-btn hero-btn-secondary">Contact Us</button>
-            <button className="hero-btn hero-btn-primary">Get Started</button>
+            <button
+              onClick={() => scrollToSection('footer')}
+              className="hero-btn hero-btn-secondary"
+            >
+              Contact Us
+            </button>
+
+            <button className="hero-btn hero-btn-primary">
+              Get Started
+            </button>
           </div>
         </div>
       </div>
