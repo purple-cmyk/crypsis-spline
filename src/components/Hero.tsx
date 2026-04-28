@@ -229,9 +229,9 @@ function Hero() {
 
         <div className="hero-right">
           <p className="hero-copy" style={{ textAlign: 'left' }}>
-Crypsis is an end-to-end platform tackling fake  
-and clone app ecosystems, helping government  
-agencies and enterprises fight brand impersonation.
+            Crypsis is an end-to-end platform tackling fake  
+            and clone app ecosystems, helping government  
+            agencies and enterprises fight brand impersonation.
           </p>
 
           <div className="hero-actions">
