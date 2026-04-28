@@ -37,33 +37,33 @@ function Hero() {
     return () => observer.disconnect()
   }, [])
 
-useEffect(() => {
-  if (!isInView) return
+  useEffect(() => {
+    if (!isInView) return
 
-  let cancelled = false
+    let cancelled = false
 
-  const loadWhenIdle = () => {
-    if (!cancelled) {
-      setShouldLoadSpline(true)
+    const loadWhenIdle = () => {
+      if (!cancelled) {
+        setShouldLoadSpline(true)
+      }
     }
-  }
 
-  if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-    const id = window.requestIdleCallback(loadWhenIdle, { timeout: 1200 })
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(loadWhenIdle, { timeout: 1200 })
+
+      return () => {
+        cancelled = true
+        window.cancelIdleCallback(id)
+      }
+    }
+
+    const timeout = setTimeout(loadWhenIdle, 500)
 
     return () => {
       cancelled = true
-      window.cancelIdleCallback(id)
+      clearTimeout(timeout)
     }
-  }
-
-  const timeout = setTimeout(loadWhenIdle, 500)
-
-  return () => {
-    cancelled = true
-    clearTimeout(timeout)
-  }
-}, [isInView])
+  }, [isInView])
 
   return (
     <main className="hero" id="home">
@@ -83,24 +83,6 @@ useEffect(() => {
             <br />
             CyberFrauds
           </h1>
-
-<div className="hero-award-bar">
-  <div className="hero-award-logo-wrap">
-    <img
-      src="/Ministry_of_Electronics_and_Information_Technology.svg"
-      alt="MeitY"
-    />
-  </div>
-
-  <span className="hero-award-text">
-    <strong>Crypsis</strong> secured <strong>1st Runner-Up</strong> at the
-    <span className="highlight"> Cyber Security Grand Challenge 2.0</span>
-  </span>
-
-  <div className="hero-award-logo-wrap">
-    <img src="/dsci.svg" alt="DSCI" />
-  </div>
-</div>
 
           <div className="hero-tags">
             <span>SECURITY</span>
@@ -138,7 +120,6 @@ useEffect(() => {
             <div className="hero-cube-fallback-inner" />
           </div>
         )}
-
       </div>
     </main>
   )
