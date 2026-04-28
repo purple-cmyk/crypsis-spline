@@ -18,25 +18,41 @@ function Navbar() {
     <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
 
       {/* BRAND */}
-      <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }} className="navbar-brand">
-        <img
-          src="/crypsis_logo.svg"
-          alt="Crypsis"
-          className="navbar-logo"
-        />
+      <a
+        href="#home"
+        onClick={(e) => {
+          e.preventDefault()
+          scrollToSection("home")
+        }}
+        className="navbar-brand"
+      >
+        <img src="/crypsis_logo.svg" alt="Crypsis" className="navbar-logo" />
         <span className="navbar-title">CRYPSIS</span>
       </a>
 
       {/* CENTER NAV */}
       <nav className="navbar-center">
-        <button onClick={() => scrollToSection('glass-page')} className="nav-link">NEED</button>
-        <button onClick={() => scrollToSection('fake-app-detection-heading')} className="nav-link">SOLUTION</button>
-        <button onClick={() => scrollToSection('about-us')} className="nav-link">ABOUT US</button>
+        <button onClick={() => scrollToSection("glass-page")} className="nav-link">
+          NEED
+        </button>
+
+        <button
+          onClick={() => scrollToSection("fake-app-detection-heading")}
+          className="nav-link"
+        >
+          SOLUTION
+        </button>
+
+        <button onClick={() => scrollToSection("about-us")} className="nav-link">
+          ABOUT US
+        </button>
       </nav>
 
       {/* ACTION */}
       <div className="navbar-actions">
-        <button onClick={() => scrollToSection('footer')} className="talk-btn">CONTACT US</button>
+        <button onClick={() => scrollToSection("footer")} className="talk-btn">
+          CONTACT US
+        </button>
       </div>
 
     </header>
