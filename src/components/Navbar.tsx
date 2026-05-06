@@ -36,6 +36,10 @@ function Navbar() {
           NEED
         </button>
 
+        <button onClick={() => scrollToSection("media")} className="nav-link">
+          MEDIA
+        </button>
+
         <button
           onClick={() => scrollToSection("fake-app-detection-heading")}
           className="nav-link"
