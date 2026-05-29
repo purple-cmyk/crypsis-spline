@@ -67,27 +67,7 @@ function GlassPage() {
           ))}
         </div>
 
-        {/* 🔥 Improved Award Strip */}
-        <div className="glass-award-strip">
-          <div className="glass-award-logos">
-            <img
-              src="/Ministry_of_Electronics_and_Information_Technology.svg"
-              alt="MeitY"
-              className="award-logo award-logo-meity"
-            />
-
-            <img
-              src="/dsci.svg"
-              alt="DSCI"
-              className="award-logo award-logo-dsci"
-            />
-          </div>
-
-          <div className="award-text">
-            <strong>Crypsis</strong> secured <strong>1st Runner-Up</strong>
-            <span>Cyber Security Grand Challenge 2.0</span>
-          </div>
-        </div>
+       
 
       </div>
     </section>
