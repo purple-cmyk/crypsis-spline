@@ -80,6 +80,122 @@ button {
     inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
+.page-panel {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 48px);
+}
+
+.page-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.page-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.page-back-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.page-badge {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.page-header {
+  max-width: 860px;
+  margin-bottom: 28px;
+}
+
+.page-kicker {
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.page-title {
+  margin: 0;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1.03;
+  color: #ffffff;
+}
+
+.page-description {
+  margin-top: 16px;
+  max-width: 780px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.page-content {
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(1rem, 1vw, 1.05rem);
+  line-height: 1.8;
+}
+
+.page-content section:not(:first-child) {
+  margin-top: 32px;
+}
+
+.page-content h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 1.4vw, 1.6rem);
+  color: #ffffff;
+}
+
+.page-content p,
+.page-content ul {
+  margin: 16px 0 0;
+}
+
+.page-content ul {
+  padding-left: 1.4rem;
+  list-style: disc inside;
+}
+
+.page-content li {
+  margin-top: 0.8rem;
+}
+
+.page-content strong {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .page-panel {
+    padding: 20px;
+  }
+
+  .page-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-back-btn {
+    width: fit-content;
+  }
+}
+
 /* NAVBAR */
 
 .navbar {
