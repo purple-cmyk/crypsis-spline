@@ -1898,7 +1898,7 @@ button {
   }
 
   .footer-cta-action {
-    text-align: left;
+    text-align: center;
     padding: 0;
   }
 }
@@ -6140,6 +6140,36 @@ body {
     0 30px 80px rgba(0,0,0,0.5);
 }
 
+/* Final mobile override: ensure CTA card and button are centered on small screens */
+@media (max-width: 700px) {
+  .footer .footer-cta-content {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .footer .footer-cta-action,
+  .footer .footer-action-card {
+    align-items: center !important;
+    text-align: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .footer .footer-action-card {
+    width: 100% !important;
+    max-width: 560px;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+  }
+
+  .footer .footer-cta-button {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: inline-block !important;
+    width: min(240px, 100%) !important;
+  }
+}
+
 .footer-cta-header {
   text-align: center;
   max-width: 760px;
@@ -7762,5 +7792,33 @@ body {
   justify-content: flex-start;
   align-items: center;
   gap: 16px;
+}
+
+/* ===== Remove inner box for Get Started and make button dynamic ===== */
+/* Clear the inner action card visuals so only the CTA card remains */
+.footer .footer-action-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.footer .footer-action-card h3 {
+  margin-top: 12px !important;
+}
+
+/* Responsive dynamic button size */
+.footer .footer-cta-button {
+  width: clamp(140px, 30vw, 220px) !important;
+  padding: clamp(10px, 1.2vw, 14px) clamp(16px, 3vw, 26px) !important;
+  font-size: clamp(0.88rem, 1.6vw, 1rem) !important;
+  border-radius: clamp(10px, 2vw, 14px) !important;
+}
+
+@media (max-width: 520px) {
+  .footer .footer-action-card {
+    padding-top: 12px !important;
+    padding-bottom: 18px !important;
+  }
 }
 
