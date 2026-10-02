@@ -5,11 +5,11 @@ function GlassPage() {
       desc: "Fake & clone apps installed on user devices pose a significant national security threat.",
     },
     {
-      title: "Problematic Ads",
+      title: "Spam/Scam Ads",
       desc: "Malicious ads running on popular platforms often bypass protection mechanisms and exploit users.",
     },
     {
-      title: "Problematic URLs",
+      title: "Fake/Clone URLs",
       desc: "Banned or high-risk URLs such as real money gaming platforms need stricter monitoring and control.",
     },
     {

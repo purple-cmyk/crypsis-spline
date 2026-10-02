@@ -193,7 +193,6 @@ function MediaPage() {
 
         {/* ─── TRUSTED BY STRIP ─── */}
         <div className="trusted-strip">
-          <p className="trusted-label">Trusted by</p>
           <div className="trusted-logos">
             <div className="trusted-logo-item">
               <img
