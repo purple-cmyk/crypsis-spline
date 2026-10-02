@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import crypsisLogo from "../assets/crypsis_logo.svg"
 import { scrollToSection } from "../utils/scrollTo"
 
 function Navbar() {
@@ -26,7 +27,7 @@ function Navbar() {
         }}
         className="navbar-brand"
       >
-        <img src="/crypsis_logo.svg" alt="Crypsis" className="navbar-logo" />
+        <img src={crypsisLogo} alt="Crypsis" className="navbar-logo" />
         <span className="navbar-title">CRYPSIS</span>
       </a>
 

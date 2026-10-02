@@ -1,3 +1,7 @@
+import awardImage from "../assets/award-image.webp"
+import ministryLogo from "../assets/Ministry_of_Electronics_and_Information_Technology.svg"
+import dsciLogo from "../assets/dsci.svg"
+
 function MediaPage() {
   const linkedinUrl = "https://www.linkedin.com/posts/csgc2-cybersecuritygrandchallenge-appsecurity-share-7432735319676076032-Czd1/";
 
@@ -22,7 +26,7 @@ function MediaPage() {
           <div className="lk-lightbox">
             <div className="lk-image-side">
               <img
-                src="/award-image.webp"
+                src={awardImage}
                 alt="Crypsis DSCI Award Ceremony"
                 className="lk-main-img"
                 onError={(e) => {
@@ -119,7 +123,7 @@ function MediaPage() {
           <div className="lk-mobile-card">
             <div className="lk-mobile-img-wrap">
               <img
-                src="/award-image.webp"
+                src={awardImage}
                 alt="Crypsis DSCI Award Ceremony"
                 className="lk-mobile-img"
                 onError={(e) => {
@@ -193,7 +197,7 @@ function MediaPage() {
           <div className="trusted-logos">
             <div className="trusted-logo-item">
               <img
-                src="/Ministry_of_Electronics_and_Information_Technology.svg"
+                src={ministryLogo}
                 alt="Ministry of Electronics and Information Technology"
                 className="trusted-logo"
               />
@@ -202,7 +206,7 @@ function MediaPage() {
             <div className="trusted-divider-vert" />
             <div className="trusted-logo-item">
               <img
-                src="/dsci.svg"
+                src={dsciLogo}
                 alt="Data Security Council of India"
                 className="trusted-logo"
               />
