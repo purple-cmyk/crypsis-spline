@@ -1,5 +1,3 @@
-
-
 function GlassPage() {
   const features = [
     {
